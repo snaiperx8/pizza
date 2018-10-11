@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+	{% if not request.user.is_anonymous %}
+		Привет, {{ request.user }}
+		<a href="{% url 'logout-url' %}">Выйти</a>
+	{% endif %}
+	
+	{% if request.user.is_anonymous %}
+		<a href="{% url 'login-url' %}">Войти</a>
+		<a href="{% url 'signup-url' %}">Зарегистрироваться</a>	
+	{% endif %}
+	
+</body>
+</html>
