@@ -9,7 +9,7 @@ from authenticate_app.views import login_view, logout_view, signup_view, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home, name = 'home-url'),
     path('accounts/login/', login_view, name = 'login-url'),
     path('accounts/logout/', logout_view, name = 'logout-url'), 
     path('accounts/signup/', signup_view, name = 'signup-url'),

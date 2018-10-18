@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	<div class = 'title'>
+		<div><a href="{% url 'home-url' %}"><img src="coco.jpg"></a></div>
+		<div>
+			Доставка пиццы <!--{request.user.city}-->
+			60 минут или минет бесплатно
+		</div>
+		<div>
+			8 996 405-18-53<!--{}-->
+			Звонок за Ваш счёт
+		</div>
+
+		<div class = 'subtitle'>
+			<a href="#">Пиццы</a>
+			<a href="#">Комбо</a>
+			<a href="#">Закуски</a>
+			<a href="#">Контакты</a>	
+		</div>
+	</div>
+
+
+
+{% block body %}
+
+{% endblock %}	
+</body>
+</html>

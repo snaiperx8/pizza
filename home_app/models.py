@@ -14,7 +14,7 @@ class EnergyValue(models.Model):
 
 class Pizza(models.Model):
 	photo = models.ImageField(upload_to = 'upload_photos/pizza_photo',
-							 default = 'static/photos_def/pizza/pizza_def.jpg', blank = False)
+							 default = 'media/photos_def/pizza/pizza_def.jpg', blank = False)
 	name = models.CharField(max_length = 30)
 	ingredients = models.TextField()
 	cost = models.IntegerField(blank = False)

@@ -1,15 +1,25 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
+from home_app.models import Pizza
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 from authenticate_app.forms import LoginForm, SignUpForm
 
 def home(request):
+	pizzas = Pizza.objects.all()
+	return render(request, 'home_temps/home.html', {'pizzas': pizzas})
 
-	return render(request, 'home_temps/home.html', {})
+def pizza_detail(request, pizza_id):
+	pizza = Pizza.objects.get(id = pizza_id)
+	return render(request, 'home_temps/detail', {'pizza': pizza})
 
+def to_buy(request, pizza_id):
+	#Занести в список сессии pizzas = [] айди купленной пиццы
+	#pizzas.append(pizza_id)
+	return redirect(home)
 def signup_view(request):
 	signup_form = SignUpForm()
 

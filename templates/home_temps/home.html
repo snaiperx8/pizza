@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
+{% extends 'home_temps/base.html' %}
+
+	{% block title %}Home{% endblock %}
+
+{% block body %}
+
 	{% if not request.user.is_anonymous %}
 		Привет, {{ request.user }}
 		<a href="{% url 'logout-url' %}">Выйти</a>
@@ -13,6 +13,16 @@
 		<a href="{% url 'login-url' %}">Войти</a>
 		<a href="{% url 'signup-url' %}">Зарегистрироваться</a>	
 	{% endif %}
+
+	{% for pizza in pizzas %}
+		<div>
+			<img class = 'pizza_obj' src="/media/{{ pizza.photo }}" height='70' width="70">
+			{{ pizza.name }}
+			{{ pizza.ingredients }}
+			<a href="{url 'details' pizza_id}">Добавить</a>
+			<!-- <a href="{url 'to_buy' pizza.id}"><img src=""></a>-->
+			{{ pizza.cost|floatformat:'2' }}
+		</div>
+	{% endfor %}
 	
-</body>
-</html>
+{% endblock %}
